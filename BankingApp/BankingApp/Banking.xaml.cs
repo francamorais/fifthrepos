@@ -16,6 +16,8 @@ namespace BankingApp
         decimal amountTransfer = 0.0m;
         decimal fromBalance = 4346.37m, toBalance = 1386.37m;
 
+        const decimal transactionFee = 2.00m;
+
         // use this two variables to keep track which radio button has clicked
         string fromRadioButtonChecked = "SavingsRadioButtonOn";
         String toRadioButtonChecked = "ChequeRadioButtonOn";
@@ -102,8 +104,8 @@ namespace BankingApp
 
 
                     case "SavingsRadioButtonOn&ChequeRadioButtonOn":  // from Savings to Cheque
-                        fromBalance = fromBalance - amountTransfer;
-                        cSavingsBalance = fromBalance;
+                        fromBalance = fromBalance - amountTransfer - transactionFee;
+                        cSavingsBalance = fromBalance ;
                         fromBalanceLabel.Content = cSavingsBalance.ToString("C");
 
                         toBalance = toBalance + amountTransfer;
@@ -112,7 +114,7 @@ namespace BankingApp
                         break;
 
                     case "SavingsRadioButtonOn&InvestmentRadioButtonOn":   // from Saving to Investment
-                        fromBalance = fromBalance - amountTransfer;
+                        fromBalance = fromBalance - amountTransfer - transactionFee;
                         cSavingsBalance = fromBalance;
                         fromBalanceLabel.Content = cSavingsBalance.ToString("C");
 
@@ -122,7 +124,7 @@ namespace BankingApp
                         break;
 
                     case "ChequeRadioButtonOn&SavingsRadioButtonOn":  // from Cheque to Savings
-                        fromBalance = fromBalance - amountTransfer;
+                        fromBalance = fromBalance - amountTransfer - transactionFee;
                         cChequeBalance = fromBalance;
                         fromBalanceLabel.Content = cChequeBalance.ToString("C");
 
@@ -132,7 +134,7 @@ namespace BankingApp
                         break;
 
                     case "ChequeRadioButtonOn&InvestmentRadioButtonOn":   // from Cheque to Investment
-                        fromBalance = fromBalance - amountTransfer;
+                        fromBalance = fromBalance - amountTransfer - transactionFee;
                         cChequeBalance = fromBalance;
                         fromBalanceLabel.Content = cChequeBalance.ToString("C");
 
@@ -142,7 +144,7 @@ namespace BankingApp
                         break;
 
                     case "InvestmentRadioButtonOn&SavingsRadioButtonOn":  // from Investment to Saving
-                        fromBalance = fromBalance - amountTransfer;
+                        fromBalance = fromBalance - amountTransfer - transactionFee;
                         cInvestmentBalance = fromBalance;
                         fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
@@ -152,7 +154,7 @@ namespace BankingApp
                         break;
 
                     case "InvestmentRadioButtonOn&ChequeRadioButtonOn":  //from Investment to Cheque
-                        fromBalance = fromBalance - amountTransfer;
+                        fromBalance = fromBalance - amountTransfer - transactionFee;
                         cInvestmentBalance = fromBalance;
                         fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
