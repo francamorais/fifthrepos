@@ -15,6 +15,8 @@ namespace BankingApp
         decimal cInvestmentBalance = 3138.78m;
         decimal amountTransfer = 0.0m;
         decimal fromBalance = 4346.37m, toBalance = 1386.37m;
+        // investment 1.1
+        const decimal transactionFee = 30m;
 
         const decimal transactionFee = 2.00m;
 
@@ -108,7 +110,7 @@ namespace BankingApp
                         cSavingsBalance = fromBalance ;
                         fromBalanceLabel.Content = cSavingsBalance.ToString("C");
 
-                        toBalance = toBalance + amountTransfer;
+                        toBalance = toBalance + amountTransfer - transactionFee;
                         cChequeBalance = toBalance;
                         toBalanceLabel.Content = cChequeBalance.ToString("C");
                         break;
@@ -118,7 +120,7 @@ namespace BankingApp
                         cSavingsBalance = fromBalance;
                         fromBalanceLabel.Content = cSavingsBalance.ToString("C");
 
-                        toBalance = toBalance + amountTransfer;
+                        toBalance = toBalance + amountTransfer - transactionFee;
                         cInvestmentBalance = toBalance;
                         toBalanceLabel.Content = cInvestmentBalance.ToString("C");
                         break;
@@ -128,7 +130,7 @@ namespace BankingApp
                         cChequeBalance = fromBalance;
                         fromBalanceLabel.Content = cChequeBalance.ToString("C");
 
-                        toBalance = toBalance + amountTransfer;
+                        toBalance = toBalance + amountTransfer - transactionFee;
                         cSavingsBalance = toBalance;
                         toBalanceLabel.Content = cSavingsBalance.ToString("C");
                         break;
@@ -158,7 +160,7 @@ namespace BankingApp
                         cInvestmentBalance = fromBalance;
                         fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
-                        toBalance = toBalance + amountTransfer;
+                        toBalance = toBalance + amountTransfer - transactionFee;
                         cChequeBalance = toBalance;
                         toBalanceLabel.Content = cChequeBalance.ToString("C");
                         break;
