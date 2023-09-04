@@ -16,9 +16,9 @@ namespace BankingApp
         decimal amountTransfer = 0.0m;
         decimal fromBalance = 4346.37m, toBalance = 1386.37m;
         // investment 1.1
-        const decimal transactionFee = 30m;
+        const decimal transactionFee = 2m;
 
-        const decimal transactionFee = 2.00m;
+        const decimal invTransactionFee = 30m;
 
         // use this two variables to keep track which radio button has clicked
         string fromRadioButtonChecked = "SavingsRadioButtonOn";
@@ -116,11 +116,11 @@ namespace BankingApp
                         break;
 
                     case "SavingsRadioButtonOn&InvestmentRadioButtonOn":   // from Saving to Investment
-                        fromBalance = fromBalance - amountTransfer - transactionFee;
+                        fromBalance = fromBalance - amountTransfer;
                         cSavingsBalance = fromBalance;
                         fromBalanceLabel.Content = cSavingsBalance.ToString("C");
 
-                        toBalance = toBalance + amountTransfer - transactionFee;
+                        toBalance = toBalance + amountTransfer - invTransactionFee;
                         cInvestmentBalance = toBalance;
                         toBalanceLabel.Content = cInvestmentBalance.ToString("C");
                         break;
@@ -136,11 +136,11 @@ namespace BankingApp
                         break;
 
                     case "ChequeRadioButtonOn&InvestmentRadioButtonOn":   // from Cheque to Investment
-                        fromBalance = fromBalance - amountTransfer - transactionFee;
+                        fromBalance = fromBalance - amountTransfer;
                         cChequeBalance = fromBalance;
                         fromBalanceLabel.Content = cChequeBalance.ToString("C");
 
-                        toBalance = toBalance + amountTransfer;
+                        toBalance = toBalance + amountTransfer - invTransactionFee;
                         cInvestmentBalance = toBalance;
                         toBalanceLabel.Content = cInvestmentBalance.ToString("C");
                         break;
